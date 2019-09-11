@@ -1,5 +1,5 @@
 #read line
-val = input();
+val = input()
 #check valid int
 #switch
     #convert scientific notation to regular int
@@ -17,23 +17,28 @@ return "None"
 
 def isValidInt(val):
     #INT
-
-        #leading zeros for int not valid
-
+        base = val[0:2]
         #base2
-            #ignore neg
-            #no number > 1
-        #base8
-            #ignore neg
-            #no number > 7
+        if base == "0b" or base == "0B":
+            if isValidB2(val):
+                return True;
+                        #base8
+        if base == "0o" or base == "0O":
+            if isValidB8(val):
+                return True
+
         #base16
-            #ignore neg
-            #no number > 15
-    return True
+        if base == "0x" or base == "oX":
+            if isValidB16(val):
+                return True
+
+        #check num '.', '-', 'e', 'E'
+        if isValidB10(val):
+            return True
+
+        return False
+
+
 def isValidFloat(val):
-    #FLOAT
-        #check decimal
-    return True
-    
-def conatainsFrac(val):
+
     return True
